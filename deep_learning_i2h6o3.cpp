@@ -18,18 +18,10 @@ int main(void)
 	//values pal;
 	int j, k, m, n;
 
-	//double i[2] = { 0.1, 0.06 }; // input layer 
-	//double i[2] = { 22/250., 29/250. }; // input layer, right turn
-	//double i[3][2] = { {25, 14}, {14, 25}, {44, 44 } }; //L, R, S
 	double i[25][2] = { {25, 14}, {41, 33}, {44, 44 }, {33,41}, {14, 25}, {29, 22}, {43, 33}, {80, 90}, {33, 43}, {22, 29}, {35, 26}, {55, 35}, {55, 55}, {35, 55}, {26, 35}, {33, 25}, {44, 32}, {150, 150}, {32, 44}, {25, 33}, {38, 23}, {50, 36}, {90, 100}, {36, 50}, {23, 38} }; //L, R, S
 	double t[25][3] = { {1,0,0}, {0,1,0}, {0,1,0}, {0,1,0}, {0,0,1}, {1,0,0}, {0,1,0}, {0,1,0}, {0,1,0}, {0,0,1}, { 1,0,0}, {0,1,0}, {0,1,0}, {0,1,0}, {0,0,1}, { 1,0,0}, {0,1,0}, {0,1,0}, {0,1,0}, {0,0,1}, { 1,0,0}, {0,1,0}, {0,1,0}, {0,1,0}, {0,0,1} }; // L, R, S
 	double w[30] = { 0.15, 0.25, 0.25, 0.30, 0.40, 0.50, 0.45, 0.55, -0.15, 0.25, -0.25, 0.31, 0.42, -0.50, 0.45, 0.48, 0.15, -0.25, 0.25, 0.30, 0.40, 0.50, 0.45, 0.25, -0.30, 0.25, 0.25, 0.30, 0.40, 0.50 }; // hidden layer
 	double b[9] = { 0.35, 0.35, 0.60, 0.60, 0.15, -0.35, 0.20, -0.20, 0.35 }; // two bias
-
-	// to verify 
-	//double in[2] = { 25/250., 15/250. }; // left turn
-	double in[2] = { 15/250., 35/250. }  ; // right turn 22, 29
-	//double in[2] = { 80/250., 80/250. }; // straight turn
 
 	for (k = 0; k < epoch; k++)
 	{
@@ -193,40 +185,25 @@ int main(void)
 
 	}
 
-	//if (fabs(pal.o1 - t[m][0]) < 0.01 && fabs(pal.o2 - t[m][1]) < 0.01 && fabs(pal.o3 - t[m][2]) < 0.01)
-	//{
-		printf("\n");
-		//printf("current input data = %d,  Error = %f \n", m, Error);
-		printf("o1 = %f, o2 = %f, o3 = %f, learning rate = %f \n", pal.o1, pal.o2, pal.o3, lr);
-		//fprintf(fp, "\n");
-		//fprintf(fp, "current input data = %d,  Error = %f \n", m, Error);
-		//fprintf(fp, "o1 = %f, o2 = %f, o3 = %f, learning rate = %f \n", pal.o1, pal.o2, pal.o3, lr);
+	printf("\n");
+	//printf("current input data = %d,  Error = %f \n", m, Error);
+	printf("o1 = %f, o2 = %f, o3 = %f, learning rate = %f \n", pal.o1, pal.o2, pal.o3, lr);
+	//fprintf(fp, "\n");
+	//fprintf(fp, "current input data = %d,  Error = %f \n", m, Error);
+	//fprintf(fp, "o1 = %f, o2 = %f, o3 = %f, learning rate = %f \n", pal.o1, pal.o2, pal.o3, lr);
 
-		for (j = 0; j < 30; j++)
-		{
-			printf("w[%d] = %f \n", j, w[j]);
-			//fprintf(fp, "w[%d] = %f \n", j, w[j]);
-			fprintf(fp, "%lf ", w[j]);
-		}
-		for (j = 0; j < 9; j++)
-		{
-			printf("b[%d] = %f \n", j, b[j]);
-			//fprintf(fp, "b[%d] = %f \n ", j, b[j]);
-			fprintf(fp, "%lf ", b[j]);
-		}
-
-		// to verify
-		//i[0] = 44/250, i[1] = 33/250;
-		vpal = verification(in, w, b);
-		printf("i1 = %f, i2 = %f, o1= %f, o2= %f, o3= %f \n", in[0], in[1], vpal.o1, vpal.o2, vpal.o3);
-		//fprintf(fp, "i1 = %f, i2 = %f, o1= %f, o2= %f, o3= %f \n", in[0], in[1], vpal.o1, vpal.o2, vpal.o3);
-
-		//break;
-		//exit(EXIT_SUCCESS);
-	//}
-
-	/*vpal = verification(in, w, b);
-	printf("To verify: i1 = %f, i2 = %f, o1= %f, o2= %f, o3= %f \n", in[0], in[1], vpal.o1, vpal.o2, vpal.o3);*/
+	for (j = 0; j < 30; j++)
+	{
+		printf("w[%d] = %f \n", j, w[j]);
+		//fprintf(fp, "w[%d] = %f \n", j, w[j]);
+		fprintf(fp, "%lf ", w[j]);
+	}
+	for (j = 0; j < 9; j++)
+	{
+		printf("b[%d] = %f \n", j, b[j]);
+		//fprintf(fp, "b[%d] = %f \n ", j, b[j]);
+		fprintf(fp, "%lf ", b[j]);
+	}
 
 	fclose(fp);
 	return 0;
