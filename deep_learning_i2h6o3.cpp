@@ -125,7 +125,7 @@ int main(void)
 			Db3E = 1 * h3_b;
 			Db4E = 1 * h4_b;
 			Db5E = 1 * h5_b;
-			Db6E = 1 * h6_b;
+			
 
 			w[12] = w[12] - lr * Dw13E; //weights
 			w[13] = w[13] - lr * Dw14E;
