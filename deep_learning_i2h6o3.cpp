@@ -38,7 +38,7 @@ int main(void)
 			h5_s = ( i[m][0] * w[8] + i[m][1] * w[9] ) / 250. + 1 * b[4];
 			h6_s = ( i[m][0] * w[10] + i[m][1] * w[11] ) / 250. + 1 * b[5];
 
-			h1 = 1.0 / (1.0 + exp(-h1_s)); // sigmoid active function
+			h1 = 1.0 / (1.0 + exp(-h1_s)); // sigmoid activation function
 			h2 = 1.0 / (1.0 + exp(-h2_s));
 			h3 = 1.0 / (1.0 + exp(-h3_s));
 			h4 = 1.0 / (1.0 + exp(-h4_s));
